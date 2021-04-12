@@ -124,10 +124,10 @@ TCP/IP 사용 시 라우터가 길을 미리 세팅(라우팅 : MST)
   - bit per second(bps)
   - 초당 몇 bit를 전송하는지
 
-| UART 통신 | USB 통신 |
-| --- | --- |
-| 0.01MBps | 400MBps |
-| 느리다 | 빠름 |
+  | UART 통신 | USB 통신 |
+  | --- | --- |
+  | 0.01MBps | 400MBps |
+  | 느리다 | 빠름 |
 
 - USB 통신을 쓰지 않는 이유
   - 엔지니어에게 USB는 어려움(개발시간, spec up)
