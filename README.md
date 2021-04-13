@@ -1,5 +1,14 @@
 # Linux_Network_Programming
 
+---
+
+#### [소켓프로그래밍](https://github.com/KimUJin3359/Linux_Network_Programming/tree/master/socket)
+- 서버와 클라이언트가 서로 Read, Wirte
+- 클라이언트가 종료되도 서버는 꺼지지 않음
+- 클라이언트가 다시 접속하면 채팅이 이뤄짐
+- 서버를 끄면 클라이언트도 종료
+
+---
 ### Network 기본
 #### 인터넷 원리
 - Network
