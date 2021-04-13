@@ -20,7 +20,7 @@ int socket_init()
     //1. socket
     fd = socket(AF_INET, SOCK_STREAM, 0);
     if (fd == -1)
-		return -1;
+		return (-1);
 
     //2. connect - bind & listen
     addr.sin_family = AF_INET;
@@ -43,21 +43,20 @@ void sig_exit()
 	// cancel thread
     pthread_cancel(tid);
     pthread_join(tid, NULL);
-    printf("CHATTING ROOM CLOSED\n");
+    write(1, "CHATTING ROOM CLOSED\n", 21);
 	// close socket
 	close(new_fd);
     close(fd);
-    exit(0);
+    exit(1);
 }
 
 // send user input to a client
 void *socket_write(void *ptr)
 {
     char buf[128];
-    while (1)
+    
+	while (1)
     {
-		int size;
-
         memset(buf, 0, sizeof(buf));
 		if (read(0, buf, sizeof(buf)) > 0)
         	write(new_fd, buf, strlen(buf));
@@ -76,14 +75,14 @@ int main()
     int ret = socket_init();
 	int len;
 
-	printf("PROGRAM START\n");
+	write(1, "PROGRAM START\n", 14);
     if (ret == -1)
     {
-        printf("INIT ERROR\n");
+        write(1, "INIT ERROR\n", 11);
         exit(0);
     }
 	new_fd = accept(fd, &new_addr, &len);
-	printf("CHATTING ROOM OPEN\n");
+	write(1, "CHATTING ROOM OPEN\n", 19);
 	// socket write start
     pthread_create(&tid, NULL, socket_write, NULL);
     // when message come, print it to host's window
@@ -102,11 +101,11 @@ int main()
 			// close socket
 			close(fd);
 			close(new_fd);
-			printf("CHATTING ROOM CLOSED\n");
 			// cancel thread
 			pthread_cancel(tid);
 			pthread_join(tid, NULL);
 			// when socket freed, take a time to restart
+			write(1, "CHATTING ROOM CLOSED\n", 21);
 			sleep(3);
 			execl("./main", 0);
 		}
