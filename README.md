@@ -410,6 +410,8 @@ TCP/IP 사용 시 라우터가 길을 미리 세팅(라우팅 : MST)
   - URL, 쿠키 등을 확인하여 로드밸런싱 가능
   - L7 스위치
 
+---
+
 ### IP/Subnetting
 #### IP주소
 - 공인 IP
@@ -498,6 +500,8 @@ TCP/IP 사용 시 라우터가 길을 미리 세팅(라우팅 : MST)
   subnetmask : 27
   ```
   
+---  
+  
 ### TCP / IP
 - IP 프로토콜
   - Internet Protocol
@@ -545,3 +549,5 @@ TCP/IP 사용 시 라우터가 길을 미리 세팅(라우팅 : MST)
     - Well-know Port Number(0 ~ 1023)
     - Registered Port(1024 ~ 49151) : 여러 Tool이 쓰는 포트(3306:MySQL, 8080:HTTP 대체)
     - Dynamic Port(49152 ~ 65535) : 필요할 때 마다 임의의 번호를 사용
+
+---
