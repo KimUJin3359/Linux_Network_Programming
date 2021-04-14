@@ -1,5 +1,16 @@
 # Linux_Network_Programming
 
+### Index
+- [소켓프로그래밍](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#%EC%86%8C%EC%BC%93%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+- [Network 기본](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#network-%EA%B8%B0%EB%B3%B8)
+- [프로토콜의 이해](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C%EC%9D%98-%EC%9D%B4%ED%95%B4)
+- [서버의 이해](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#%EC%84%9C%EB%B2%84%EC%9D%98-%EC%9D%B4%ED%95%B4)
+- [Socket 통신 개요](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#socket-%ED%86%B5%EC%8B%A0-%EA%B0%9C%EC%9A%94)
+- [Router](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#router)
+- [OSI 7 Layer](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#osi-7-layer)
+- [IP Subnetting](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#ipsubnetting)
+- [TCP/IP](https://github.com/KimUJin3359/Linux_Network_Programming/blob/master/README.md#tcp--ip)
+
 ---
 
 #### [소켓프로그래밍](https://github.com/KimUJin3359/Linux_Network_Programming/tree/master/socket)
@@ -551,3 +562,21 @@ TCP/IP 사용 시 라우터가 길을 미리 세팅(라우팅 : MST)
     - Dynamic Port(49152 ~ 65535) : 필요할 때 마다 임의의 번호를 사용
 
 ---
+
+### 컴퓨터 네트워크 관련 질문
+- OSI Layer 7에 대해 설명하세요
+  - OSI란 Open System Interconnection의 약자로, 네트워크에서 통신이 일어나는 과정을 7 단계로 나눈 것입니다
+  - 이렇게 7계층으로 분리를 해 둔 이유는 통신이 일어나는 과정을 단계별로 파악할 수 있고, 특정 계층에 문제가 생기면 다른 단계의 장비 및 소프트웨어를 건드리지 않고 이상이 생긴 부분에서만 수정하면 되기 때문입니다
+- TCP/IP에 대해 설명하세요
+  - TCP는 전송 계층의 신뢰성 있고, 연결지향적인 프로토콜이며, IP는 네트워크 계층의 데이터 전송을 위한 프로토콜입니다
+  - TCP/IP라고 불리는 이유는 TCP는 데이터의 흐름을 제어할 수 있지만 직접적인 경로 설정 등 전송의 역할은 IP가 함으로 둘은 반드시 함께 사용되기 때문입니다
+- TCP/IP 4 계층에 대해 설명하세요
+  - TCP/IP 4계층은 OSI를 실제 사용하는 인터넷 표준입니다
+  - 네트워크 액세스 계층, 인터넷 계층, 전송 계층, 응용 게층으로 구분됩니다
+  - 인터넷 계층에는 ICMP, IP, ARP 등의 프로토콜, 전송 계층에는 TCP, UDP 등의 프로토콜, 응용 계층에는 FTP, Telnet 등의 프로토콜이 존재합니다
+- OSI 7 Layer 각 계층별로 설명하세요
+  ```
+  물리 계층은 물리적인 장비들로 직접적인 전송을 하는 계층이며, 데이터 링크 계층은 물리 계층에서 데이터를 송/수신 할 때 발생하는 오류나 흐름을 관리합니다.
+  네트워크 계층은 데이터를 목적지까지 전달하는 역할 즉 라우팅이 주된 역할이며, 전송 계층은 통신을 활성화하기 위한 계층입니다.
+  세션 계층은 세션 설정 등 통신하기 위한 논리적인 연결을 담당하며, 표현 계층은 암호화, 압축 등의 역할을 수행합니다. 마지막으로, 응용 계층은 사용자 간의 인터페이스 등을 담당합니다.
+  ```
