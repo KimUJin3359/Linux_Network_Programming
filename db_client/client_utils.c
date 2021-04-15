@@ -74,7 +74,6 @@ void socket_run(char buf[128])
 		write(1, "INIT ERROR\n", 11);
 		exit(0);
 	}
-	sleep(1);
 	write(1, "DB START\n", 9);
 	// socket write start
 	pthread_create(&tid, NULL, socket_write, NULL);
