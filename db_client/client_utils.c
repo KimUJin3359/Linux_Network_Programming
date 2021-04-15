@@ -51,7 +51,8 @@ void *socket_write(void *ptr)
 		// if user input a cmd
 		if (read(0, buf, sizeof(buf)) > 0)
 		{
-			write(1, "CLIENT >> %s", 10 + strlen(buf));
+			write(1, "CLIENT >> ", 10);
+			write(1, buf, strlen(buf));
 			// if user input exit 
 			if (strncmp(buf, "exit", 4) == 0)
 				sig_exit();
@@ -82,8 +83,8 @@ void socket_run(char buf[128])
 	{
 		int size;
 
-		memset(buf, 0, sizeof(buf));
-		size = read(fd, buf, sizeof(buf));
+		memset(buf, 0, 128);
+		size = read(fd, buf, 128);
 		// print it
 		if (size > 0)
 			write(1, buf, strlen(buf));

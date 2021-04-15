@@ -15,11 +15,11 @@ ${TARGET} :${OBJS}
 all : ${TARGET}
 
 clean :
-	rm -rf *.o
+	rm *.o
 
 fclean : clean
 	rm ${TARGET}
 
-re : fclean re
+re : fclean all
 
 .PHONY : all clean fclean re
