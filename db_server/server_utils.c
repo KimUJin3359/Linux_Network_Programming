@@ -83,6 +83,7 @@ void read_command(char buf[128])
 {
 	// file buffer
 	char file[128];
+	char ret[128];
 	// key, value in database
 	char *f_key;
 	char *f_val;
@@ -100,9 +101,10 @@ void read_command(char buf[128])
 		// key in database in each line
 		f_key = strtok(file, ":");
 		// compare with input key and file key
-		if (strlen(f_key) != 0 && strncmp(buf + 5, f_key, strlen(f_key)) == 0)
+		if (strlen(f_key) == strlen(buf + 5) && strncmp(buf + 5, f_key, strlen(f_key)) == 0)
 		{
 			f_val = strtok(NULL, ":");
+			strcpy(ret, f_val);
 			find = 1;
 		}
 		memset(file, 0, sizeof(file));
@@ -111,7 +113,7 @@ void read_command(char buf[128])
 	if (!find)
 		write(new_fd, "No key in DB\n", 13);
 	else
-		write(new_fd, f_val, strlen(f_val));
+		write(new_fd, ret, strlen(ret));
 	// close the database
 	fclose(db_fd);
 }

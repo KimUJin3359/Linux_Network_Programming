@@ -20,8 +20,7 @@ void						sig_exit();
 int							open_file();
 void						save_command(char buf[128]);
 void						read_command(char buf[128]);
-int 						accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
-void						exit(int status);
+int							accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 
 int main()
 {
@@ -37,7 +36,7 @@ int main()
         exit(0);
     }
 	new_fd = accept(fd, &new_addr, &len);
-	write(1, "CLIENT ACCESS\n", 9);
+	write(1, "CLIENT ACCESS\n", 14);
 
 	// when message come, run command
     while (1) 
@@ -46,10 +45,11 @@ int main()
 
         memset(buf, 0, sizeof(buf));
 		size = read(new_fd, buf, sizeof(buf));
-		write(1, "CLIENT >> %s", 10 + strlen(buf));
 		// exec command
         if (size > 0)
 		{
+			write(1, "CLIENT >> ", 10);
+			write(1, buf, strlen(buf));
 			// save cmd
 			if (strlen(buf) >= 5 && strncmp(buf, "save ", 5) == 0)
 				save_command(buf);

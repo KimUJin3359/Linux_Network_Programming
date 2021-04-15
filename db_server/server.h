@@ -9,5 +9,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+void exit(int status);
 
 #endif
